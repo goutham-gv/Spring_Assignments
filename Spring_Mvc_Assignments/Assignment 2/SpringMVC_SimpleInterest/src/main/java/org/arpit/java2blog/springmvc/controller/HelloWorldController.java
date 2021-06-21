@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -18,11 +19,11 @@ public class HelloWorldController {
 		return new ModelAndView("hello", "message", helloWorldMessage);
 	}
 	@RequestMapping("/about")
-	public ModelAndView about(HttpServletRequest request , HttpServletResponse response)
+	public ModelAndView about(@RequestParam("t1")int result1 , @RequestParam("t2")int result2, @RequestParam("t3")int result3,HttpServletRequest request , HttpServletResponse response)
 	{   
-		int result1 = Integer.parseInt(request.getParameter("t1"));
-		int result2 = Integer.parseInt(request.getParameter("t2"));
-		int result3 = Integer.parseInt(request.getParameter("t3"));
+//		int result1 = Integer.parseInt(request.getParameter("t1"));
+//		int result2 = Integer.parseInt(request.getParameter("t2"));
+//		int result3 = Integer.parseInt(request.getParameter("t3"));
 		float sim = (result1+result2+result3) % 100;
 		
 		ModelAndView mv = new ModelAndView();
